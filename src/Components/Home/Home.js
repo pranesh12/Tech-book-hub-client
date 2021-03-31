@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import HomeCards from "../HomeCards/HomeCards";
 
 const Home = () => {
+  const [books, setBooks] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/AllBooks")
+      .then((res) => res.json())
+      .then((data) => {
+        setBooks(data);
+      });
+  }, []);
   return (
     <>
-      <h1>This is Home Componet</h1>
+      <div className="container">
+        <div className="cards container-sm mt-5 p-3 allCard">
+          <div className="row justify-content-center">
+            <div className="">
+              <div className="rounded card-deck">
+                {books.map((book) => (
+                  <HomeCards books={book}></HomeCards>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
