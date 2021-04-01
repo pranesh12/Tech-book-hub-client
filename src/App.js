@@ -4,11 +4,11 @@ import Home from "./Components/Home/Home";
 import Navbar from "./Components/Navbar/Navbar";
 import NotFound from "./Components/NotFound/NotFound";
 import Admin from "./Components/Admin/Admin";
-import Order from "./Order/Order";
 import Login from "./Components/Login/Login";
 import CheckOut from "./Components/CheckOut/CheckOut";
 import { createContext, useState } from "react";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import Order from "./Components/Order/Order";
 export const BookContext = createContext();
 function App() {
   const [book, setBook] = useState([]);
