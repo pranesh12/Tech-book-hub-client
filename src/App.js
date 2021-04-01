@@ -6,31 +6,44 @@ import NotFound from "./Components/NotFound/NotFound";
 import Admin from "./Components/Admin/Admin";
 import Order from "./Order/Order";
 import Login from "./Components/Login/Login";
-
+import CheckOut from "./Components/CheckOut/CheckOut";
+import { createContext, useState } from "react";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+export const BookContext = createContext();
 function App() {
+  const [book, setBook] = useState([]);
+  const [login, setLogin] = useState({
+    email: null,
+    name: null,
+  });
   return (
-    <div className="App">
-      <Router>
-        <Navbar></Navbar>
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="/admin">
-            <Admin></Admin>
-          </Route>
-          <Route path="/order">
-            <Order></Order>
-          </Route>
-          <Route>
-            <Login></Login>
-          </Route>
-          <Route path="*">
-            <NotFound></NotFound>
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+    <BookContext.Provider value={{ book, setBook, login, setLogin }}>
+      <div className="App">
+        <Router>
+          <Navbar></Navbar>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <PrivateRoute path="/admin">
+              <Admin></Admin>
+            </PrivateRoute>
+            <PrivateRoute path="/order">
+              <Order></Order>
+            </PrivateRoute>
+            <PrivateRoute path="/checkout">
+              <CheckOut></CheckOut>
+            </PrivateRoute>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    </BookContext.Provider>
   );
 }
 

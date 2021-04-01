@@ -38,10 +38,14 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li className="nav-item   pr-3 font-weight-bold">
-                  <Link className="nav-link text-dark">Deals</Link>
+                  <Link to="/checkout" className="nav-link text-dark">
+                    Check Out
+                  </Link>
                 </li>
                 <li className="nav-item   pr-3 font-weight-bold">
-                  <Link className="nav-link text-dark">Login</Link>
+                  <Link to="/login" className="nav-link text-dark">
+                    Login
+                  </Link>
                 </li>
               </ul>
             </div>

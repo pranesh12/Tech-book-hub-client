@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "./HomeCards.css";
+import { Link } from "react-router-dom";
+import { BookContext } from "../../App.js";
 
 const HomeCards = (props) => {
-  const { bookName, AuthorName, price, img } = props.books;
+  const { _id, bookName, AuthorName, price, img } = props.books;
+  const { setBook } = useContext(BookContext);
+
+  const handleBook = () => {
+    const addBook = {
+      id: _id,
+      bookName: bookName,
+      AuthorName: AuthorName,
+      price: price,
+      quantity: 1,
+    };
+    setBook(addBook);
+  };
   return (
     <div>
       <div className="mt-3  mx-auto">
@@ -22,7 +36,11 @@ const HomeCards = (props) => {
               <p className="font-weight-bold text-primary">${price}</p>
             </div>
             <div>
-              <button className="btn btn-primary">Buy Now</button>
+              <Link to="/checkout">
+                <button onClick={handleBook} className="btn btn-primary">
+                  Order Now
+                </button>
+              </Link>
             </div>
           </div>
         </div>

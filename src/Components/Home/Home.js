@@ -18,7 +18,7 @@ const Home = () => {
             <div className="">
               <div className="rounded card-deck">
                 {books.map((book) => (
-                  <HomeCards books={book}></HomeCards>
+                  <HomeCards key={book._id} books={book}></HomeCards>
                 ))}
               </div>
             </div>
