@@ -37,13 +37,16 @@ const Login = () => {
   return (
     <>
       <div className="container mx-auto">
-        <h1 className="mt-5 text-center">Login Page</h1>
-        <button
-          onClick={hanldeGoogleLogin}
-          className="btn btn-primary mt-5 text-center mx-auto"
-        >
-          Google Log In
-        </button>
+        <h2 className="mt-5 text-center">Login Page</h2>
+        <div className="d-flex justify-content-center">
+          <button
+            onClick={hanldeGoogleLogin}
+            className="btn btn-success mt-5 text-uppercase"
+          >
+            Login with Gmail
+          </button>
+        </div>
+
         <p>{login.email}</p>
       </div>
     </>

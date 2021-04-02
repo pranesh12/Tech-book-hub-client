@@ -20,15 +20,12 @@ const HomeCards = (props) => {
   return (
     <div>
       <div className="mt-3  mx-auto">
-        <div
-          className="card pt-4  pl-1 pr-1 shadow border-0"
-          style={{ width: "12rem" }}
-        >
+        <div className="card pt-4  shadow border-0" style={{ width: "15rem" }}>
           <img src={img} className="card-img-top" alt={bookName} />
           <div className="card-body">
             <div className="card-text ">
-              <p className="line">{bookName}</p>
-              <small className="line">{AuthorName}</small>
+              <p className="card-text">{bookName}</p>
+              <small className="card-text">{AuthorName}</small>
             </div>
           </div>
           <div className="card-body d-flex justify-content-between  align-items-baseline">

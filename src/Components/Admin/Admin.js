@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 const Admin = () => {
   const { register, handleSubmit } = useForm();
   const [imgUrl, setImgUrl] = useState();
+  const [isImageUpdated, setIsImageUpdated] = useState(false);
   const onSubmit = (data) => {
     const formdata = {
       bookName: data.BookName,
@@ -30,11 +31,20 @@ const Admin = () => {
     axios.post("https://api.imgbb.com/1/upload", imageData).then((res) => {
       // console.log(res);
       setImgUrl(res.data.data.display_url);
+      setIsImageUpdated(true);
     });
   };
   return (
     <>
       <div className="container">
+        {!isImageUpdated ? (
+          <h3 className="text-danger text-center mt-5 mb-5">
+            wait for couple of seconds to upload image
+          </h3>
+        ) : (
+          <h3 className="text-danger text-center mt-5 mb-5">Iamge uploded</h3>
+        )}
+
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">
             <label>Book Name</label>
@@ -72,8 +82,20 @@ const Admin = () => {
               type="file"
             />
           </div>
-
-          <input type="submit" value="Add To Database" />
+          {!isImageUpdated ? (
+            <input
+              className="btn btn-success"
+              type="submit"
+              value="Add To Database"
+              disabled
+            />
+          ) : (
+            <input
+              className="btn btn-success"
+              type="submit"
+              value="Add To Database"
+            />
+          )}
         </form>
       </div>
     </>
