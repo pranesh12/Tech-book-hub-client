@@ -13,14 +13,14 @@ const Admin = () => {
       img: imgUrl,
     };
 
-    fetch("http://localhost:5000/addBook", {
+    fetch("https://tech-books-server.herokuapp.com/addBook", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formdata),
     });
-    console.log(formdata);
+    // console.log(formdata);
   };
   const handleImageUpload = (event) => {
     let imageData = new FormData();
@@ -28,7 +28,7 @@ const Admin = () => {
     imageData.append("image", event.target.files[0]);
 
     axios.post("https://api.imgbb.com/1/upload", imageData).then((res) => {
-      console.log(res);
+      // console.log(res);
       setImgUrl(res.data.data.display_url);
     });
   };

@@ -15,7 +15,7 @@ const CheckOut = () => {
       quantity: book.quantity,
     };
     // setCheckOut(orders);
-    fetch(`http://localhost:5000/orders`, {
+    fetch(`https://tech-books-server.herokuapp.com/orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

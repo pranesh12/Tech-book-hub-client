@@ -5,7 +5,7 @@ const Order = () => {
   const { login, setLoin } = useContext(BookContext);
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/orders?email=${login.email}`)
+    fetch(`https://tech-books-server.herokuapp.com/orders?email=${login.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
