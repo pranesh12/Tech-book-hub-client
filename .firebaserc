@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "practice-e2c56"
+    "default": "practice-e2c56",
+    "build": "tech-book-hub"
   }
 }
